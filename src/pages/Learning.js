@@ -6,14 +6,21 @@ import Typekey from "../components/Typekey.js";
 import SuccessFail from "../components/SuccessFail.js";
 import NextBefore from "../components/NextBefore.js";
 
-function Learning(props) {
+function Learning() {
+    const props = {
+        vimKey: "l",
+        type: "Movement",
+        action: "move the curser to the right one character",
+        status: "",
+    };
+    console.log("Learning#props", props);
     return (
         <div className="Learning">
             <Type type={props.type} />
             <Key vimKey={props.vimKey} />
-            <Action />
-            <Typekey />
-            <SuccessFail />
+            <Action action={props.action} />
+            <Typekey type={props.vimKey} />
+            <SuccessFail status={props.status} />
             <NextBefore />
         </div>
     );

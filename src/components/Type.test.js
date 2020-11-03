@@ -27,6 +27,6 @@ describe("Type component", () => {
         debug();
         const type = getByTestId("type-text");
 
-        expect(type).toBeEmptyDOMElement();
+        expect(type).toHaveTextContent("Type: Default");
     });
 });

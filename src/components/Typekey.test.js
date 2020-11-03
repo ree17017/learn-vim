@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Type from "./Type.js";
+import Typekey from "./Typekey.js";
 import "@testing-library/jest-dom/extend-expect";
 
 describe("Type component", () => {
@@ -9,24 +9,15 @@ describe("Type component", () => {
     };
 
     const renderComponent = (propsForTest = props) =>
-        render(<Type type={propsForTest.type} />);
+        render(<Typekey type={propsForTest.type} />);
 
-    test("Show the type", () => {
+    test("Input is visable", () => {
         const propsForTest = props;
-        const { getByTestId } = renderComponent();
-
-        const type = getByTestId("type-text");
-
-        expect(type).toHaveTextContent(`Type: ${propsForTest.type}`);
-    });
-
-    test("Does not show blank", () => {
-        const propsForTest = { ...props, type: "" };
-        const { debug, getByTestId } = renderComponent(propsForTest);
+        const { debug, getByTestId } = renderComponent();
 
         debug();
-        const type = getByTestId("type-text");
+        const type = getByTestId("typekey-input");
 
-        expect(type).toHaveTextContent("Type: Default");
+        expect(type).toBeInTheDocument();
     });
 });

@@ -1,10 +1,11 @@
 import React from "react";
 
-function Type({ type }) {
+function Type(props) {
+    console.log("type#type", props);
     const default_type = (type) =>
-        type === "" ? "Type: Default" : `Type: ${type}`;
+        type === undefined ? "Type: Default" : `Type: ${props.type}`;
 
-    return <div data-testid="type-text">{default_type(type)}</div>;
+    return <div data-testid="type-text">{default_type(props.type)}</div>;
 }
 
 export default Type;
