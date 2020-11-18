@@ -1,7 +1,6 @@
 import React from "react";
 
 function Type(props) {
-    console.log("type#type", props);
     const default_type = (type) =>
         type === undefined ? "Type: Default" : `Type: ${props.type}`;
 

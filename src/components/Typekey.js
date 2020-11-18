@@ -1,9 +1,15 @@
 import React from "react";
+import styled from "styled-components";
+
+const CommandInput = styled.input`
+    margin: 10px 0 30px 0;
+    height: 30px;
+`;
 
 function Typekey({ type }) {
     return (
         <div data-testid="typekey">
-            <input
+            <CommandInput
                 placeholder="Enter Command here"
                 type="text"
                 data-testid="typekey-input"
