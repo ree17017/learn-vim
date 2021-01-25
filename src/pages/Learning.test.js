@@ -7,6 +7,7 @@ describe("Learning Page", () => {
     const props = {
         type: "Movement",
         key: "l",
+        variant: "success",
     };
 
     const renderComponent = (propsForTest = props) =>
@@ -15,53 +16,55 @@ describe("Learning Page", () => {
     test("Type compoent", () => {
         const propsForTest = { ...props };
         const { debug, getByTestId } = renderComponent(propsForTest);
-        debug();
 
         const type = getByTestId("type-text");
 
-        expect(type).toHaveTextContent(`Type: ${propsForTest.type}`);
+        expect(type).toHaveTextContent(propsForTest.type);
     });
 
     test("Key compoent", () => {
-        const propsForTest = { ...props, type: "" };
+        const propsForTest = { key: "qw", ...props };
         const { debug, getByTestId } = renderComponent(propsForTest);
 
-        debug();
+        const key = getByTestId("key");
 
-        expect(true).toBe(true);
+        expect(key).toHaveTextContent("Keyl");
     });
 
     test("Action component", () => {
         const propsForTest = { ...props, type: "" };
         const { debug, getByTestId } = renderComponent(propsForTest);
 
-        debug();
+        const action = getByTestId("action");
 
-        expect(true).toBe(true);
+        expect(action).toHaveTextContent(
+            "Actionmove the curser to the right one character"
+        );
     });
     test("Typekey component", () => {
         const propsForTest = { ...props, type: "" };
         const { debug, getByTestId } = renderComponent(propsForTest);
 
-        debug();
+        const typeKey = getByTestId("typekey");
+        const typeKeyInput = getByTestId("typekey-input");
 
-        expect(true).toBe(true);
+        expect(typeKey).toContainElement(typeKeyInput);
     });
 
     test("Successfail component", () => {
-        const propsForTest = { ...props, type: "" };
-        const { debug, getByTestId } = renderComponent(propsForTest);
+        const propsForTest = { ...props, variant: "success" };
+        const { getByTestId } = renderComponent(propsForTest);
 
-        debug();
-
-        expect(true).toBe(true);
+        const successfail = getByTestId(`successfail-alert-undefined`);
     });
+
     test("NextBefore component", () => {
         const propsForTest = { ...props, type: "" };
         const { debug, getByTestId } = renderComponent(propsForTest);
 
-        debug();
+        const nextbefore = getByTestId("nextbefore");
+        const nextbeforePreviouse = getByTestId("nextbefore-previous");
 
-        expect(true).toBe(true);
+        expect(nextbefore).toContainElement(nextbeforePreviouse);
     });
 });

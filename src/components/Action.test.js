@@ -17,10 +17,10 @@ describe("Action component", () => {
 
         expect(action).toHaveTextContent("Action");
     });
-    test("Correct Action command", () => {
-        const { debug, getByTestId } = renderComponent();
 
-        debug();
+    test("Correct Action command", () => {
+        const { getByTestId } = renderComponent();
+
         const action = getByTestId("action-text");
 
         expect(action).toHaveTextContent("Move cursor right one character");

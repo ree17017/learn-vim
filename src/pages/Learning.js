@@ -12,8 +12,8 @@ function Learning() {
         type: "Movement",
         action: "move the curser to the right one character",
         status: "",
+        variant: "success",
     };
-    console.log("Learning#props", props);
     return (
         <div className="Learning">
             <Type type={props.type} />

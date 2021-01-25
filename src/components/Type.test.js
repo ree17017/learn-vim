@@ -17,16 +17,15 @@ describe("Type component", () => {
 
         const type = getByTestId("type-text");
 
-        expect(type).toHaveTextContent(`Type: ${propsForTest.type}`);
+        expect(type).toHaveTextContent(propsForTest.type);
     });
 
     test("Does not show blank", () => {
         const propsForTest = { ...props, type: "" };
-        const { debug, getByTestId } = renderComponent(propsForTest);
+        const { getByTestId } = renderComponent(propsForTest);
 
-        debug();
         const type = getByTestId("type-text");
 
-        expect(type).toHaveTextContent("Type: Default");
+        expect(type).toHaveTextContent("Default");
     });
 });

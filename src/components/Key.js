@@ -15,6 +15,7 @@ const Command = styled.div`
 `;
 
 function Key({ vimKey }) {
+    console.log(vimKey);
     return (
         <Card data-testid="key">
             <h2 data-testid="key-title">Key</h2>
